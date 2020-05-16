@@ -1,0 +1,232 @@
+body {
+	background:#F4F4f4;
+}
+
+.contenedor_general{
+	display: flex;
+	justify-content: center;
+}	
+
+.contenedor_columna{
+	display: flex;
+	flex-direction: column;
+}
+
+.contenedor_para_boot{
+	width: 80%;
+}
+
+.circle {
+
+  margin-top: 200%;
+  height: 240px;
+  width: 240px;
+  background-color: #3A9EB7;
+  margin: 3% auto;
+  border-radius: 50%;
+  z-index: -2;
+}
+
+.boton_cerrar_sesion{
+	background: rgba(250,250,250,0.0);
+	border: 0px;
+	color: white;
+	font-size: 12pt;
+
+}
+
+.imagen_circulo{
+
+	position: absolute;
+	width: inherit;
+	height: auto;
+	z-index: -1;
+}
+
+.texto{
+	display: flex;
+	justify-content: center;
+	width: 70vw;
+	background: rgba(250,250,250,0.0);
+	border-bottom: 1px solid #024959;
+	margin-top: 3%;
+}
+
+.texto label{
+	color: #024959;
+	font-size: 40pt;
+	font-family: "Tw Cen MT", sans-serif;
+	text-align: center;
+	margin: 15px;
+
+}
+
+.texto p{
+	margin-bottom: 15px;
+	font-family: "Courier";
+	text-align: center;
+	font-size: 15pt;
+}
+
+/*  ------------------MENU DESPLEGABLE-------------------*/
+
+* {
+	margin:0;
+	padding:0;
+}
+
+a{
+	font-family: "Police" , sans-serif;
+}
+
+
+header{
+	width:100%;
+}
+
+header nav{
+	width:90%;
+	max-width:1000px;
+	margin:0px auto;
+	background:#024959;
+	display: flex;
+	justify-content: center;
+	border-radius: 0px 0px 30px 30px;
+
+}
+
+.menu_bar{
+	display:none;
+	height: 80%;
+
+}
+
+header nav ul {
+	overflow:hidden;
+	list-style:none;
+}
+
+header nav ul li {
+	float:left;
+}
+
+header nav ul li a{
+	color:#fff;
+	padding:20px;
+	display:block;
+	text-decoration:none;
+}
+
+header nav ul li span{
+	margin-right:10px;
+}
+
+header nav ul li a:hover{
+	background:#037E8C;
+}
+
+section{
+	padding:20px;
+}
+
+@media screen and (max-width:800px){
+
+	.circle {
+
+		  
+		  height: 100px;
+		  width: 100px;
+		}
+
+	.contenedor_general{
+		margin-top: 10%;
+	}	
+
+	.texto label{
+		font-size: 25pt;
+	}
+
+	.texto p{
+		font-size: 12pt;
+	}
+
+	header nav {
+		width:50%;
+		height:100%;
+		left:-100%; //lo agrego para la forma no brusca xdxD
+		margin:0;
+		position:fixed;
+		display: block;
+	}
+	
+
+	header nav ul li{
+		display:block;
+		float:none;
+		border-bottom:1px solid rgba(255,255,255, .3);
+		z-index: 2;
+
+	}
+
+	a{
+		font-size: 10pt;
+	}
+
+	.menu_bar{
+		
+		display:block;
+		width:100%;
+		background:#ccc;
+		height: 30px;
+		align-items: center;
+	}
+
+	.menu_bar .bt-menu{
+		display:block;
+		padding:20px;
+		height: 30px;
+		background:#024959;
+		color:#fff;
+		text-decoration: none;
+		font-weight: bold;
+		font-size: 25px;
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		box-sizing: border-box;
+
+	}
+
+	#barritas{
+		position: fixed;
+		margin-top: -3%;
+		float: left;
+	}
+
+
+	.menu_bar span{
+		float: left;
+		font-size: 20px;
+		margin-top: -8px;
+
+	}
+
+	.menu_bar a{
+		font-size: 20pt;
+	}
+
+	.cerrar_sesion{
+		bottom: 50px;
+	}
+
+	.contenedor_lista{
+		display: flex;
+		flex-direction: column;
+		
+	}
+
+	.contenedor_lista ul li{
+		width: 100%;
+	}
+
+
+}

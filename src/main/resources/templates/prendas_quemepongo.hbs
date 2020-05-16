@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/css/prendas_quemepongo.css">
+		<script src="https://kit.fontawesome.com/45c2e77de6.js"></script>
+		<title>Pantalla de listado de prendas de un guardarropa</title>
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		 <meta charset="utf-8">
+
+        <script src="/js/eliminar_prenda.js"></script>
+        <link rel="stylesheet" href="/css/modal_eliminar_prenda.css">
+        <script src="https://kit.fontawesome.com/27517fada0.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
+
+
+    </head>
+	<body>
+
+
+
+	<header>
+		<div class="menu_bar">
+				<a href="#" class="bt-menu" ><i class="fas fa-bars" id="barritas" ></i></a>
+	
+		</div>
+
+		<nav>
+			<ul>
+				<form action="/logout" method="post">
+				<li><a href="/"><i class="fas fa-home"></i> Inicio</a></li>
+				<li><a href="/guardarropas"><i class="fas fa-list"></i> Guardarropas</a></li>
+				<li><a href="/calendario"><i class="far fa-calendar-alt"></i> Eventos</a></li>
+				<li><a href="/seleccionGuardarropasSuge"><i class="fas fa-user-tie"></i> Sugerencia</a></li>
+				<li><a href="/seleccionGuardarropas"><i class="fas fa-tshirt"></i> Ingresar Prenda</a></li>
+                
+				<li><a href="#"><button type="submit" class="boton_cerrar_sesion"><i class="fas fa-key"></i> Cerrar Sesion</button></a></li>
+                </form>
+			</ul>
+		</nav>
+	</header>
+
+
+	<div class="contenedor_general">
+		
+		<div class="circle"><img src="/img/logoQueMePongo3.png" class="imagen_circulo"></div>
+
+		<p class="texto_prendas"><b>Prendas</b></p>
+
+			<div class="interior_prendas"  >
+
+				{{#each prendas}}
+
+				<div>
+					<div class="card" style="width: 250px; height: 100%;  margin-right: 15%; ">
+					  <img src="{{this.imagen_url}}" class="card-img-top" alt="...">
+					  <div class="card-body">
+					    <h5 class="card-title">{{tipo.nombrePrenda}}</h5>
+					    <p class="card-text">Tipo de tela: {{this.tela.nombre}}</p>
+
+					    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable{{this.id}}">
+						  Ver Prenda
+						</button>
+
+                        <button type="button" class="btn btn-primary" onclick="confirmarEliminacion({{this.id}})">
+                            Eliminar
+                        </button>
+
+						<!-- Modal -->
+					</div>
+				</div>
+
+
+						<div class="modal fade" id="exampleModalScrollable{{this.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+						  <div class="modal-dialog modal-dialog-scrollable" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title" id="exampleModalScrollableTitle">{{this.nombrePrenda}}</h5>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+						      </div>
+						      <div class="modal-body">
+						        Tela : {{this.tela.nombre}}
+						      </div>
+						      <hr>
+						      <div class="modal-body" style="background-color: {{this.color.[1].coloHexa}};">
+						      </div>
+						      <!-- iba aca lo que borre (el form rancio)
+						        <div class="modal-footer">
+						      	<form action="/eliminarPrenda/{{this.id}}" method="post">
+						      		<input type="submit" class="btn btn-secondary" data-dismiss="modal" name="" value="Eliminar">
+						       </form>
+						        <button type="button" class="btn btn-primary">Aceptar</button>
+						      </div>
+                            -->
+						    </div>
+						  </div>
+						</div>
+					  </div>
+
+				{{/each}}
+
+			</div>
+
+			<div class="contenedor_botones">
+
+				<a href="/guardarropas"  style=""><button class="boton_volver">Volver</button></a>
+
+				<a href="/ingreso_prenda/{{guardarropa_id}}"><button dir="/ingreso_prenda/6" class="boton_ingresar_prenda">Nueva Prenda</button></a>
+
+			</div>
+
+	</div>
+
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/js/menu_desplegable_quemepongo.js"></script>
+
+    <!-- MODAL ELIMINAR PRENDA UNISOCIAL-SPARK -->
+    <div class="modalEliminar modal" id="modalEliminar">
+        <div class="modalContent">
+            <input id="prendaId" type="hidden" value="">
+            <p>¿Desea eliminar la prenda?</p>
+            <button type="button" name="button" class="btn-close-modal" onclick="cerrarModal()" ><i class="fas fa-times-circle"></i></button>
+            <br>
+            <div class="">
+                <button type="button" name="button" class="btn-rojo" onclick="eliminarUsuario()">Eliminar</button>
+                <button type="button" name="button" class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+	
+	</body>
+</html>

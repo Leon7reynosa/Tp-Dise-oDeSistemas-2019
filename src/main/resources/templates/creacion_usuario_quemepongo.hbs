@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/css/creacion_usuario_quemepongo.css">
+		<script src="https://kit.fontawesome.com/45c2e77de6.js"></script>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>Creacion de Usuario</title>
+		
+	</head>
+	<body >
+
+	
+			<div id="centrador">
+				<div class="circle">
+					<img src="img/logoQueMePongo3.png" class="imagen_circulo">
+				</div>
+			</div>	
+			
+
+			<div class="contenedor_info_usuario">
+
+			
+
+					<div class="carta_usuario">
+
+							<div style="display: flex; flex-direction: column; align-items: center;">
+					<div class="circulo_usuario">
+						<img src="img/usuario.png" class="imagen_circulo">
+					</div>
+
+					<form action="/registrarUsuario" method="post">
+						<div class="alineacion_paralela">
+							
+						
+							<div style="margin: 40px">
+								<label><i class="fas fa-user"></i><b> Usuario </b></label>
+								<br>
+								<br>
+								<input type="text" name="usuario" class="input_datos" placeholder="Usuario" required></input>
+								<br>
+								<br>
+
+								<label><i class="fas fa-file-signature"></i><b> Nombre </b></label>
+								<br>
+								<br>
+								<input type="text" name="nombre" class="input_datos" placeholder="Nombre" required></input>
+								<br>
+								<br>
+
+								<label><i class="fas fa-file-signature"></i><b> Apellido </b></label>
+								<br>
+								<br>
+								<input type="text" name="apellido" class="input_datos" placeholder="Apellido" required></input>
+								<br>
+								<br>
+								
+								<label><i class="fas fa-unlock-alt"> </i> Contraseña</label>
+               					<br>
+               					<br>
+              					<input type="password" name="contrasenia" value="" class="input_datos" placeholder="Contraseña" required>
+                				<br>
+                				<br>
+
+
+							</div>
+
+
+							<div style="margin: 40px">
+								<label><i class="fas fa-envelope"></i><b> E-mail </b></label>
+								<br>
+								<br>
+								<input type="text" name="email" class="input_datos" placeholder="E-mail" required></input>
+								<br>
+								<br>
+
+								<label><i class="fas fa-phone"></i><b> Teléfono </b></label>
+								<br>
+								<br>
+								<input type="text" name="telefono" class="input_datos" placeholder="Teléfono"></input>
+								<br>
+								<br>
+
+								<label><i class="fas fa-calendar-alt"> </i> Fecha de Nacimiento</label>
+               					<br>
+               					<br>
+               					<input type="date" name="fechaDeNacimiento" class="input_datos" placeholder="Fecha de Nacimiento">
+							</div>
+
+						</div>
+
+						<input type="submit" name="" class="btn_crear_usuario" style="float:right;"  value="Crear usuario">
+
+						<a href="/login" class="btn-border-blue" style="">Volver</a>
+
+					</form>
+
+				</div>
+				</div>
+
+				
+			</div>
+
+			<div class="rectangulo_abajo">
+				
+
+
+			</div>
+		
+		
+
+	</body>
+</html>

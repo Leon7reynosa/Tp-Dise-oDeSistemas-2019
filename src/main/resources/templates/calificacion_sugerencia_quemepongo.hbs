@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Sugerencias</title>
+      <link rel="stylesheet" href="/css/fonts.css">
+      <link rel="stylesheet" href="/css/calificacion_quemepongo.css">
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+      <link rel="stylesheet" href="/js/jquery-ui.css">
+       <link rel="stylesheet" href="/css/sugerencia_prueba_quemepongo.css">
+      <link rel="stylesheet" href="/resources/demos/style.css">
+
+       <link rel="stylesheet" href="/css/fonts/fonts.css">
+     <script src="https://kit.fontawesome.com/45c2e77de6.js"></script>
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+      <script src="js/jquery-ui.js"></script>
+        
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+            
+
+  </head>
+  <body>
+
+
+      <header>
+        <div class="menu_bar">
+            <a href="#" class="bt-menu" ><i class="fas fa-bars" id="barritas" ></i></a>
+      
+        </div>
+
+        <nav>
+          <ul>
+            <form action="/logout" method="post">
+            <li><a href="/"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="/guardarropas"><i class="fas fa-list"></i> Guardarropas</a></li>
+            <li><a href="/calendario"><i class="far fa-calendar-alt"></i> Eventos</a></li>
+            <li><a href="/seleccionGuardarropasSuge"><i class="fas fa-user-tie"></i> Sugerencia</a></li>
+            <li><a href="/seleccionGuardarropas"><i class="fas fa-tshirt"></i> Ingresar Prenda</a></li>
+                    
+            <li><a href="#"><button type="submit" class="boton_cerrar_sesion"><i class="fas fa-key"></i> Cerrar Sesion</button></a></li>
+                    </form>
+          </ul>
+        </nav>
+      </header>
+
+
+
+      <div class="contenedor_general">
+
+          <div style="display: flex; flex-direction: column; align-items: center;">
+              
+            <div class="circle">
+              <img src="/img/logoQueMePongo3.png" class="imagen_circulo">
+            </div>
+
+            <div class="contenedor_columnas" >
+              
+                <div id="carouselExampleControls" class="carousel slide " data-ride="carousel" style="border-radius: 10px;">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active contenedor_imagen"><a href="google.com">
+                      <img class="d-block w-100" src="/img/remera_suge.png" alt="First slide">
+                      </a>
+                    </div>
+                    <div class="carousel-item contenedor_imagen_dos">
+                      <a href="https://htmlcolorcodes.com/es/">
+                        <img class="d-block w-100" src="/img/buzo_suge.png" alt="Second slide">
+                      </a>
+                    </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+                <div class="contenedor_imagen_zapas">
+                  <a href="https://htmlcolorcodes.com/es/">
+                    <img src="/img/Pantalon_suge.png" class="imagensita">
+                  </a>
+                  
+                </div>
+                <div class="contenedor_imagen_zapas">
+                  <a href="https://htmlcolorcodes.com/es/">
+                    <img src="/img/zapas_suge.png" class="imagensita">
+                  </a>
+                  
+                </div>
+
+            </div>
+
+
+            <div class="contenedor_estrellas" style="border-radius: 10px; background-color:rgba(74,162,189, 0.4);">
+
+              <label style="font-size: 14pt;">Calificacion de Sugerencia:</label>
+
+              <form>
+                <p class="clasificacion">
+                  <input id="radio1" type="radio" name="estrellas" value="5"><!--
+                  --><label for="radio1">★</label><!--
+                  --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+                  --><label for="radio2">★</label><!--
+                  --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+                  --><label for="radio3">★</label><!--
+                  --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+                  --><label for="radio4">★</label><!--
+                  --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+                  --><label for="radio5">★</label>
+                </p>
+              </form>
+              
+            </div>
+
+
+          </div>
+
+
+    </div>
+
+
+      <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="/js/menu_desplegable_quemepongo.js"></script>
+   
+  </body>
+</html>

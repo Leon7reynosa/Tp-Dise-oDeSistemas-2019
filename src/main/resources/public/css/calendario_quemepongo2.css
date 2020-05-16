@@ -1,0 +1,88 @@
+
+body{
+
+	background-color:#EDEDED;
+  text-align: center;
+}
+
+.texto_principal{
+	font-family: 'Agency FB';
+	font-size: 50pt;
+	color: white;
+	text-shadow: 2px 2px black;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: orange;
+
+
+}
+
+.contenedor_general	{
+	margin-top: -70px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+
+}
+
+.circle {	
+  background-color: rgb(255,180,134);
+  margin: 1% ;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  align-items: center;
+}
+
+.imagen_circulo{
+
+  position: relative;
+  width: 90%;
+  height: auto;
+
+}
+
+.rectangulo_abajo{
+
+  background-color: rgb(255,180,134);
+  position: absolute;
+  height: 35%;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+   z-index: -1;
+
+}
+/*ESTILOS DEL CALENDARIO ORIGINAL---------------------*/
+
+/*instrucciones generales*/
+* { margin: auto; }
+/*cabecera de la página*/
+h1 { text-align: center; padding: 0.5em; }
+/*div principal del calendario*/
+#calendario { border: 4px double black ; max-width: 700; 
+              background-color:#fffafa; text-align: center; }
+/*tabla del calendario*/
+#diasc { border: 1px solid black; border-collapse: 
+         separate; border-spacing: 4px; }
+#diasc th,#diasc td { font: normal 14pt arial; width: 130px; height: 60px; }
+#diasc th { color: #990099; background-color: #FF8912 }
+#diasc td { color: red; background-color: red }
+/*línea de la fecha actual*/
+#fechaactual { font: bold 12pt arial ; padding: 0.4em; color: #FCB66F; }
+#fechaactual i { cursor: pointer ; }
+#fechaactual i:hover { color: blue; text-decoration: underline; }
+/*formulario de busqueda de fechas*/
+#buscafecha { background-color: #DC7400; color: #9bf5ff; padding: 5px }
+#buscafecha select, #buscafecha input  { background-color: #9bf5ff; 
+            color: #990099; font: bold 10pt arial;  }
+#buscafecha [type=text]  { text-align: center; }
+#buscafecha  [type=button] { cursor: pointer; }
+/*cabecera del calendario*/ 
+#anterior { float: left; width: 100px; font: bold 14pt ; font-family: 'Agency FB';
+          padding: 0.5em 0.1em; cursor: pointer ; }
+#posterior { float: right; width: 100px; font: bold 14pt; font-family: 'Agency FB'; 
+          padding: 0.5em 0.1em; cursor: pointer ;}
+#anterior:hover {color: blue;text-decoration: underline; }
+#posterior:hover {color: blue; text-decoration: underline;}
+#titulos { font: normal 30pt ; font-family: 'Agency FB'; padding: 0.2em; }
+

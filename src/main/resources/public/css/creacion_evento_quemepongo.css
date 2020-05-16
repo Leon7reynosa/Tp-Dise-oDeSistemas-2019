@@ -1,0 +1,318 @@
+body{
+
+	font-family: 'Lato', sans-serif;
+	background-color:#F4F4f4;
+
+}
+
+.contenedor_principal{
+
+
+  width:100vw;
+  position: absolute;
+  top:0px;
+  z-index: -2;
+  font-size: 22px;
+  background-color:#EDEDED;
+  height: 100vh;
+}
+
+.circle {	
+  background-color: #3A9EB7;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  align-items: center;
+  margin: 2%;
+  z-index: 0;
+}
+
+.imagen_circulo{
+
+	position: relative;
+	width: inherit;
+	height: auto;
+  z-index: 1;
+
+}
+
+.rectangulo_abajo{
+
+	background-color: #3A9EB7;
+	position: absolute;
+	height: 35%;
+ 	width: 100%;
+ 	bottom: 0px;
+ 	left: 0px;
+ 	 z-index: -1;
+
+}
+
+
+.contenedor_info_usuario{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width:100vw;
+  height: 90%;
+  /*background-color: rgb(245, 245, 245);*/
+  background: rgba(200,200,200,0.0);
+}
+
+.carta_usuario{
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  background-color: white;
+  border-bottom:4px solid rgb(72, 73, 74);
+  border-top: 4px solid #024959;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+.input_datos{
+
+  font-size:20px;
+  height: 25px;
+  border:0px;
+  width:100%;
+  padding: 5px;
+  background-color: #F4F4F4;
+  border-bottom:3px solid rgb(72, 73, 74);
+}
+
+.alineacion_paralela{
+
+  display: flex;
+  flex-direction: row;
+
+}
+
+.btn-border-blue{
+  padding: 7px;
+  margin: 10px;
+  width: 42px;
+  height: 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  color:rgb(10, 123, 199);
+  border: 1px solid rgb(10, 123, 199);
+  text-decoration: none;
+  float: left;
+}
+
+.btn_crear_usuario{
+  border:0px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #3A9EB7;
+  border-radius: 5px;
+  margin:5px;
+  cursor:pointer;
+  color:white;
+}
+
+.select_datos{
+    font-size:20px;
+  height: 35px;
+  border:0px;
+  width:100%;
+  padding: 5px;
+  background-color: #F4F4F4;
+  border-bottom:3px solid rgb(72, 73, 74);
+}
+
+.boton_cerrar_sesion{
+  background: rgba(250,250,250,0.0);
+  border: 0px;
+  color: white;
+  font-size: 12pt;
+
+}
+
+.btn_crear_usuario:hover{
+  background-color: #297089;
+}
+
+.btn-border-blue:hover{
+  background-color: #50BAB7; 
+  color:white;
+  border: 1px solid #50BAB7 ;
+
+}
+
+/*  ------------------MENU DESPLEGABLE-------------------*/
+
+* {
+  margin:0;
+  padding:0;
+}
+
+a{
+  font-family: "Police" , sans-serif;
+}
+
+
+header{
+  width:100%;
+}
+
+header nav{
+  width:90%;
+  max-width:1000px;
+  margin:0px auto;
+  background:#024959;
+  display: flex;
+  justify-content: center;
+  border-radius: 0px 0px 30px 30px;
+
+}
+
+.menu_bar{
+  display:none;
+  height: 80%;
+
+}
+
+header nav ul {
+  overflow:hidden;
+  list-style:none;
+}
+
+header nav ul li {
+  float:left;
+}
+
+header nav ul li a{
+  color:#fff;
+  padding:20px;
+  display:block;
+  text-decoration:none;
+}
+
+header nav ul li span{
+  margin-right:10px;
+}
+
+header nav ul li a:hover{
+  background:#037E8C;
+}
+
+section{
+  padding:20px;
+}
+
+@media screen and (max-width:800px){
+
+  .circle {
+
+      margin-top: 8%;
+      height: 100px;
+      width: 100px;
+    }
+
+  .contenedor_general{
+    margin-top: 10%;
+  } 
+
+  .texto label{
+    font-size: 25pt;
+  }
+
+  .texto p{
+    font-size: 12pt;
+  }
+
+  header nav {
+    width:50%;
+    height:100%;
+    left:-100%; //lo agrego para la forma no brusca xdxD
+    margin:0;
+    position:fixed;
+    display: block;
+     z-index: 2;
+  }
+  
+
+  header nav ul li{
+    display:block;
+    float:none;
+    border-bottom:1px solid rgba(255,255,255, .3);
+    z-index: 2;
+
+  }
+
+  a{
+    font-size: 10pt;
+  }
+
+  .menu_bar{
+    
+    display:block;
+    width:100%;
+    background:#ccc;
+    height: 30px;
+    align-items: center;
+  }
+
+  .menu_bar .bt-menu{
+    display:block;
+    padding:20px;
+    height: 30px;
+    background:#024959;
+    color:#fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 25px;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing: border-box;
+
+  }
+
+  #barritas{
+    position: fixed;
+    margin-top: -3%;
+    float: left;
+  }
+
+
+  .menu_bar span{
+    float: left;
+    font-size: 20px;
+    margin-top: -8px;
+
+  }
+
+  .menu_bar a{
+    font-size: 20pt;
+  }
+
+  .cerrar_sesion{
+    bottom: 50px;
+  }
+
+  .contenedor_lista{
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+  .contenedor_lista ul li{
+    width: 100%;
+  }
+
+  .alineacion_paralela{
+    flex-direction: column;
+  }
+
+  .rectangulo_abajo{
+    background-color: rgba(250,250,250,0.0);
+  }
+
+
+}

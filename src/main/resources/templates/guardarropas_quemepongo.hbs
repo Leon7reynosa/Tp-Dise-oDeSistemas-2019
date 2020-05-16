@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Menu</title>
+	<link rel="stylesheet" href="/css/guardarropa_quemepongo.css">
+	<link rel="stylesheet" href="/fonts/fonts.css">
+	<script src="https://kit.fontawesome.com/45c2e77de6.js"></script>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+	<header >
+		<div class="menu_bar" style="z-index: 1;">
+				<a href="#" class="bt-menu" ><i class="fas fa-bars" id="barritas" ></i></a>
+	
+		</div>
+
+		<nav>
+			<ul>
+				<form action="/logout" method="post">
+				<li><a href="/"><i class="fas fa-home"></i> Inicio</a></li>
+				<li><a href="/guardarropas"><i class="fas fa-list"></i> Guardarropas</a></li>
+				<li><a href="/calendario"><i class="far fa-calendar-alt"></i> Eventos</a></li>
+				<li><a href="/seleccionGuardarropasSuge"><i class="fas fa-user-tie"></i> Sugerencia</a></li>
+				<li><a href="/seleccionGuardarropas"><i class="fas fa-tshirt"></i> Ingresar Prenda</a></li>
+                
+				<li><a href="#"><button type="submit" class="boton_cerrar_sesion"><i class="fas fa-key"></i> Cerrar Sesion</button></a></li>
+                </form>
+			</ul>
+		</nav>
+	</header>
+
+	<div class="circle">
+		<img src="img/logoQueMePongo3.png" class="imagen_circulo">
+	</div>
+
+	<div class="contenedor_general">
+		<div class="contenedor_columna" >
+			<div style="display: flex; align-items: baseline; max-width: 100%; position: relative;">
+				<label class="letrita">LISTADO DE GUARDARROPAS</label>
+				<form method="get" action="/ingresoGuardarropa" class="formsito">
+					<button class="boton_nuevo"> Nuevo Guardarropa</button>
+				</form>
+			</div>
+				
+			<div class="list-group" >
+			{{#each guardarropas}}
+			  <a href="/guardarropas/{{id}}" class="list-group-item list-group-item-action flex-column align-items-start">
+			    <div class="d-flex w-100 justify-content-between">
+			      <h5 class="mb-1">{{this.nombre}}</h5>
+			      <small class="text-muted">{{this.fecha_ingreso}}</small>
+			    </div>
+			    <p class="mb-1">{{this.descripcion}}</p>
+			    <small class="text-muted">GUARDARROPA {{estiloVestimenta}}.</small>
+			  </a>
+			{{/each}}
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="/js/menu_desplegable_quemepongo.js"></script>
+
+</body>
+</html>

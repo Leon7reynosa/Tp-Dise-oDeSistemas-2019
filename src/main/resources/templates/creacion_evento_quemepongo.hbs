@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+
+		<link rel="stylesheet" type="text/css" href="/css/creacion_evento_quemepongo.css">
+		<script src="https://kit.fontawesome.com/45c2e77de6.js"></script>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>Creacion de Evento</title>
+		
+	</head>
+	<body >
+
+		<header>
+			<div class="menu_bar">
+					<a href="#" class="bt-menu" ><i class="fas fa-bars" id="barritas" ></i></a>
+		
+			</div>
+
+			<nav>
+				<ul>
+					<form action="/logout" method="post">
+					<li><a href="/"><i class="fas fa-home"></i> Inicio</a></li>
+					<li><a href="/guardarropas"><i class="fas fa-list"></i> Guardarropas</a></li>
+					<li><a href="/calendario"><i class="far fa-calendar-alt"></i> Eventos</a></li>
+					<li><a href="/seleccionGuardarropasSuge"><i class="fas fa-user-tie"></i> Sugerencia</a></li>
+					<li><a href="/seleccionGuardarropas"><i class="fas fa-tshirt"></i> Ingresar Prenda</a></li>
+	                
+					<li><a href="#"><button type="submit" class="boton_cerrar_sesion"><i class="fas fa-key"></i> Cerrar Sesion</button></a></li>
+	                </form>
+				</ul>
+			</nav>
+		</header>
+
+		<div >
+		
+
+
+
+				<div class="contenedor_info_usuario">
+					<div style="display: flex; flex-direction: column; align-items: center;">
+						
+
+						<div class="circle">
+							<img src="img/logoQueMePongo3.png" class="imagen_circulo">
+						</div>
+						<div class="carta_usuario">
+							<form action="/registrarEvento" method="post" id="form_evento" >
+								<div class="alineacion_paralela">
+									
+								
+									<div style="margin: 40px">
+										<label><i class="fas fa-file-signature"></i><b> Nombre Evento </b></label>
+										<br>
+										<br>
+										<input type="text" name="usuario" class="input_datos" placeholder="Nombre" required></input>
+										<br>
+										<br>
+
+										
+										<label><i class="fas fa-tshirt"> </i> Estilo Vestimenta</label>
+		               					<br>
+		               					<br>
+		               					<select id="estiloSelect" class="select_datos" name="estilo" required>
+										 	
+						                   <option selected disabled value="">Seleccionar</option>
+
+						                   {{#each estilos}}
+						                   <option value="{{this}}">{{this}}</option>
+						                   {{/each}}
+						          
+						                 </select>
+		                                <br>
+		                                <br>
+		                                <label>Guardarropa</label>
+		                                <br>
+		                                <br>
+		                                <select id="guardarropaSelect" class="select_datos" name="guardarropa" required>
+
+		                                    <option selected disabled value="">Seleccionar</option>
+
+		                                    {{#each guardarropas}}
+		                                        <option   value="{{this.id}}">{{this.estiloVestimenta}} - {{this.nombre}}</option>
+		                                    {{/each}}
+
+		                                </select>
+
+
+									</div>
+
+
+									<div style="margin: 40px">
+										<label><i class="fas fa-file-signature"></i><b> Descripcion Evento </b></label>
+										<br>
+										<br>
+										<input type="text" name="descripcion" class="input_datos" placeholder="Descripcion" required></input>
+										<br>
+										<br>
+
+										<label><i class="fas fa-calendar-alt"> </i> Fecha del Evento </label>
+		               					<br>
+		               					<br>
+		               					<input type="date" name="fecha_evento" class="input_datos" placeholder="Fecha de Evento" required>
+
+		               					<br>
+										<br>
+		               					<label><i class="far fa-clock"> </i> Frecuencia </label>
+		               					<br>
+		               					<br>
+		               					<select class="select_datos" name="frecuencia" required>
+										 	
+						                   <option selected disabled value="">Seleccionar</option>
+
+						                   <option value="Mensual">Mensual</option>
+
+						                   <option value="Semanal">Semanal</option>
+
+						                   <option value="UnicaVez">Una sola vez</option>
+						          
+						                 </select>
+									</div>
+
+								</div>
+
+								<input type="submit" name="" class="btn_crear_usuario" style="float:right;"  value="Crear Evento">
+
+								<a href="/calendario" class="btn-border-blue" style="">Volver</a>
+
+							</form>
+
+						</div>
+
+					</div>
+					
+				</div>
+				
+
+
+
+			<div class="rectangulo_abajo"></div>
+
+		</div>	
+
+
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="/js/menu_desplegable_quemepongo.js"></script>	
+
+	<script type="text/javascript">
+
+		$(function(){
+		    //function to show city
+		    var showEstilo = function(selectedEstilo){
+		     $('#guardarropaSelect option').hide();
+		        $('#guardarropaSelect').find('option').filter(function(){
+		            var guardarropas = $(this).text();
+		            return guardarropas.indexOf(selectedEstilo)!=-1;
+		        }).show();
+		        //set default value
+		        var defaultCity = $('#guardarropaSelect option:visible:first').text();
+		        $('#guardarropaSelect').val(defaultCity);
+		    };
+
+		    //set default state
+		    var estilo = $('#estiloSelect').val();
+		    showEstilo(estilo);
+
+		    //on change event call showCity function 
+		    $('#estiloSelect').change(function(){
+		       showEstilo($(this).val());
+		    });
+		});
+
+	</script>
+
+<!--
+    <script>
+
+        var form = document.getElementById("form_evento");
+
+        function validar(){
+
+            var hoy = new Date();
+            var fecha_form = form.elements["fecha_evento"].value;
+
+            alert(fecha_form + "" + hoy);
+
+            return fecha_form >= hoy;
+
+        }
+
+        form.addEventListener("submit", function(event){
+
+            if(validar()){
+
+            }else{
+
+                event.preventDefault();
+                alert("La fecha debe ser mayor o igual a la actual");
+            }
+
+
+        },false);
+
+
+    </script>
+-->
+	</body>
+</html>

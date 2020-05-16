@@ -1,0 +1,178 @@
+.rectangulo_abajo{
+
+  background-color: rgb(255,180,134);
+  position: absolute;
+  height: 35%;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+   z-index: -1;
+
+}
+
+body{
+
+  background-color:#EDEDED;
+  text-align: center;
+}
+
+label{
+  
+  display: inline-block;
+  vertical-align: middle;
+
+
+}
+
+.circle { 
+  position: absolute;
+  background-color: rgb(255,180,134);
+  margin: 1% ;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  align-items: center;
+  float: left;
+}
+
+.imagen_circulo{
+
+  position: relative;
+  width: 90%;
+  height: auto;
+}
+
+.contenedor_general{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  top: 10%;
+  background: rgba(250,250,250,0.0);
+
+}
+
+.contenedor_sugerencias{
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedor_prenda{
+
+  width: 20vw;
+  display: flex;
+  flex-direction: row;
+  border: 5px solid #FF9C60;
+  border-radius: 4% 4% 4% 4%;
+  background-color: #EEEEEE ;
+  margin-bottom: 10px;
+  
+}
+
+.contenedor_botones{
+  background: rgba(250,250,250,0.0);
+}
+
+.imagen_acciones{
+  width: 80px;
+  height: auto;
+  left: 0%;
+  margin: 20px 0px 100px 10px;
+}
+
+.imagen_prenda{
+
+  height: 110px;
+  width: auto;
+  margin: 3%;
+
+}
+
+.contenedor_info{
+  position: relative;
+  height: 110px;
+  width: auto;
+  margin: 3%;
+}
+
+.contenedor_info label{
+
+  font-family: 'Agency FB';
+  font-size: 10pt;
+  background: rgba(250, 250, 250, 0.0);
+  border-bottom: 2px solid #FF9C60;
+  float: left;
+  margin-top: 5px
+
+}
+
+.contenedor_colores{
+  display: flex;
+  flex-direction: row;
+    margin-top: 5px;
+    float: left; 
+}
+
+.color_mostrar{
+  left: 5%;
+  margin-left: 10%;
+  height: 20px;
+  width: 20px;
+
+}
+
+.contenedor_estrellas{
+
+  background-color: #F4F4F4;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.contenedor_estrellas label{
+
+  font-family: 'Agency FB'; 
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  background:rgba(250,250,250,0.0);
+}
+
+/*---------------ESTRELLAS ----------------*/
+
+#form {
+  width: 500px;
+  margin: 0 auto;
+  height: 250px;
+}
+
+#form p {
+  text-align: center;
+}
+
+#form label {
+  font-size: 80px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  color: grey;
+  font-size: 50px;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label {
+  color: orange;
+}
+
+input[type="radio"]:checked ~ label {
+  color: orange;
+}

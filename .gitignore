@@ -1,0 +1,12 @@
+.vs/*
+.settings/
+.idea/*
+.target/
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+/target/
+.bin/*
+/bin1/

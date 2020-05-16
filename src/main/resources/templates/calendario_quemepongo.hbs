@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Evento quemepongo</title>
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+      <link rel="stylesheet" href="/css/jquery/jquery-ui.css">
+       <link rel="stylesheet" href="/css/calendario_quemepongo.css">
+      <link rel="stylesheet" href="/resources/demos/style.css">
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="js/jquery-ui.js"></script>
+      <script src="https://kit.fontawesome.com/45c2e77de6.js"></script>
+        
+      <script src="/js/menu_desplegable_quemepongo.js"></script>
+
+     <!--{{#each eventos}}
+
+        <script > 
+
+
+          
+                 $( function() {
+                      // An array of dates
+                      var eventDates = {};
+
+                      eventDates[ new Date( '{{eventos.frecuencia.fechaDelEvento}}' )] = new Date( '{{eventos.frecuencia.fechaDelEvento}}' );
+                      
+                      // datepicker
+                      $('#datepicker').datepicker({
+                          beforeShowDay : function( date ) {
+                              var highlight = eventDates[date];
+                              if( highlight ) {
+                                   return [true, "event", "Tooltip text"];
+                              } else {
+                                   return [true, '', ''];
+                              }
+                          }
+                      });
+                  });
+        </script>
+      {{/each}}
+
+
+      <script >
+            app.set('views', __dirname + '/views/');
+            app.set('view engine', 'handlebars');
+            var hbs = require('handlebars');
+              hbs.registerHelper('boogie', function(text)
+            {
+              return new Handlebars.SafeString(text);;
+            });
+            app.engine('handlebars', engines.handlebars);
+
+      </script>
+-->
+
+
+      <script>
+       $( function() {
+            // An array of dates
+            var eventDates = {};
+            {{#each fecha}}
+            eventDates[ new Date( '{{this}}' )] = new Date( '{{this}}'  );
+            {{/each}}
+            
+            // datepicker
+
+            $('#datepicker').datepicker({
+
+                beforeShowDay : function( date ) {
+                    var highlight = eventDates[date];
+                    if( highlight ) {
+                         return [true, "event", "Tooltip text"];
+                    } else {
+                         return [true, '', ''];
+                    }
+                },
+                onSelect : function(date){
+
+                  var nuevo_date = new Date(date);
+
+                  location.replace("/eventos/" + nuevo_date.getFullYear() +  "-" + ("0" + (nuevo_date.getMonth() + 1)).slice(-2) + "-" + ("0" + nuevo_date.getDate()).slice(-2));
+                }
+            });
+        });
+
+      </script>
+
+
+      
+
+  </head>
+  <body>
+
+  <header>
+    <div class="menu_bar">
+        <a href="#" class="bt-menu" ><i class="fas fa-bars" id="barritas" ></i></a>
+  
+    </div>
+
+    <nav>
+      <ul>
+        <form action="/logout" method="post">
+        <li><a href="/"><i class="fas fa-home"></i> Inicio</a></li>
+        <li><a href="/guardarropas"><i class="fas fa-list"></i> Guardarropas</a></li>
+        <li><a href="/calendario"><i class="far fa-calendar-alt"></i> Eventos</a></li>
+        <li><a href="/seleccionGuardarropasSuge"><i class="fas fa-user-tie"></i> Sugerencia</a></li>
+        <li><a href="/seleccionGuardarropas"><i class="fas fa-tshirt"></i> Ingresar Prenda</a></li>
+                
+        <li><a href="#"><button type="submit" class="boton_cerrar_sesion"><i class="fas fa-key"></i> Cerrar Sesion</button></a></li>
+                </form>
+      </ul>
+    </nav>
+  </header>
+
+    <div class="contenedor">
+
+        <div class="contenedor_columnas">
+
+          <div class="circle">
+            <img src="/img/logoQueMePongo3.png" class="imagen_circulo">
+          </div>
+
+          <div class="demo">
+             <div id="datepicker"></div>
+          </div><!-- End demo -->
+
+          <div style="display: flex; justify-content: center;">
+            <a href="/ingreso_evento" class="boton_nuevo">Nuevo Evento</a>
+          </div>
+          
+
+
+          
+        </div>
+
+    </div>
+     
+
+   
+  </body>
+</html>

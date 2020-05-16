@@ -1,0 +1,185 @@
+body{
+
+	font-family: 'Lato', sans-serif;
+	background-color:#EDEDED;
+	text-align: center;
+}
+
+label{
+	font-family: sans-serif;
+}
+
+.circle {	
+  background-color: rgb(255,180,134);
+  margin: 1% ;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  align-items: center;
+}
+
+.imagen_circulo{
+
+	position: relative;
+	width: 90%;
+	height: auto;
+
+}
+
+.rectangulo_abajo{
+
+	background-color: rgb(255,180,134);
+	position: absolute;
+	height: 35%;
+ 	width: 100%;
+ 	bottom: 0px;
+ 	left: 0px;
+ 	 z-index: -1;
+
+}
+
+.contenedor_general{
+
+	position: absolute;
+	width: 100vw;
+	top: 25%;
+	display: flex;
+	justify-content: center;
+	background: rgba(200,200,200,0.0);
+}
+
+.boton_circulo{
+
+  display: flex;
+  justify-content: center;	
+  height: 200px;
+  width: 200px;
+  background-color: #F4F4F4;
+  border: solid 3px black;
+  margin: 20px;
+  border-radius: 50%;
+
+}
+
+.contenedor_circulos{
+
+	display: flex;
+	justify-content: center;
+
+}
+
+.circulo_imagen_prenda{
+
+	position: relative;
+	width: inherit;
+	height: auto;
+
+}	
+
+
+#prevBtn {
+
+  width: 80px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 5px;
+  color:rgb(10, 123, 199);
+  background-color: #F4F4F4;
+  border: 1px solid rgb(10, 123, 199);
+  text-decoration: none;
+  margin-top: 10px;
+
+
+}
+
+#nextBtn{
+	width: 80px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 5px;
+  color:#00BA55;
+  background-color: #F4F4F4;
+  border: 1px solid #00BA55;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+#texto_error{
+	color: rgba(200,200,200,0.0);
+	font: 80% sans-serif;
+}
+
+.advertencia{
+	color: red;
+}
+
+.seleccion_color{
+
+	width: 25px;
+}
+
+/* --------------------ESTILOS DEL WIzARD ------------------------------*/
+
+
+/* Style the form */
+#regForm {
+position: relative;	
+  background-color: white;
+  margin: 10px auto;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+  border-bottom:3px solid rgb(72, 73, 74);
+  border-top: 3px solid rgb(255,180,134);
+}
+
+/* Style the input fields */
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+select{
+    padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+/* Mark the active step: */
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+

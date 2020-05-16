@@ -1,0 +1,147 @@
+body{
+
+	background-color:#EDEDED;
+	text-align: center;
+}
+
+
+.circle {
+  height: 220px;
+  width: 220px;
+  background-color: #3A9EB7;
+  margin: 2% auto;
+  border-radius: 50%;
+  align-items: center;
+
+}
+
+.rectangulo_contenedor{
+	display: flex;
+	justify-content: center; 
+	width: 100vw;
+}
+
+.cuadrado_login{
+
+	height: 43%;
+ 	width: 20%;
+ 	top: 35%;
+	background-color: white;
+	position: fixed;
+	box-shadow: 2px 2px grey;
+	text-align: center;
+
+}
+
+#input_id{
+
+	outline: none;
+	border: 0;
+	position: relative;	
+	background-color: #FAFAFA;
+	height: 5%;
+	border-bottom: 2px solid #024959;
+	width: 80%;
+
+}
+
+.boton_ingresar{
+  border:0px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #3A9EB7;
+  border-radius: 5px;
+  margin:5px;
+  cursor:pointer;
+  color:white;
+}
+
+.login_input_correo{
+
+	font-family: sans-serif;
+	color: #E1E1E1;
+	position: relative;
+	text-align: left;
+	left:10%;
+	bottom: -3%;
+
+}
+
+
+.iniciar_sesion_texto{
+
+	text-align: center;
+	font-family: sans-serif;
+	color:black;
+	top: -4%;
+	position: relative;
+	font-size: xx-large;
+}
+
+
+.imagen_circulo{
+
+	position: relative;
+	width: inherit;
+	height: auto;
+
+}
+
+.rectangulo_abajo{
+
+	background-color: #024959;
+	position: fixed;
+	 height: 35%;
+ 	 width: 100%;
+ 	 bottom: 0px;
+ 	 left: 0px;
+ 	 z-index: -1;
+}
+
+.texto_error{
+
+	color: red;
+	font: 80% sans-serif ;
+}
+
+#form_login a{
+	margin-top: 100%;
+	text-align: center;
+}
+
+@media screen and (max-width:800px){
+
+	.circle {
+		  height: 100px;
+		  width: 100px;
+		  background-color: #3A9EB7;
+		  margin: 2% auto;
+		  border-radius: 50%;
+		  margin-top: 20%;
+		}
+
+	.cuadrado_login{
+		width: 80%;
+		
+	}
+
+	.iniciar_sesion_texto{
+		font-size: 17pt;
+	}
+
+	a {
+		color: #5ADED6;
+	}
+
+	.login_input_correo{
+		font-size: 12pt;
+	}
+
+	.boton_ingresar{
+
+		width: 25%;
+		font-size: 10pt;
+	}
+
+	
+}

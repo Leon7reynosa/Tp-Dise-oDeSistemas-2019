@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		 <link rel="stylesheet" href="/css/ingreso_prenda_quemepongo.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+     
+        
+        <title>LOGIN</title>
+	</head>
+	<body >
+
+		
+  
+
+		<div class="circle">
+			<img src="/img/logoQueMePongo.png" class="imagen_circulo">
+		</div>
+
+
+		<div class="contenedor_general">
+
+
+			<form id="regForm" action="/ingresoPrenda/6" method="post">
+
+					<h1>Ingreso de Prenda:</h1>
+
+					<!-- One "tab" for each step in the form: -->
+					<div class="tab">Tipo de Prenda:
+
+						<br>
+
+
+						<p id="texto_error">Debes Seleccionar una Categoria de Prenda </p>
+
+						<br>
+								
+						<div class="contenedor_circulos" >
+								
+								<input type="button" name=""  class="boton_circulo" style="background-image: url(/img/SUPERIOR.png) no-repeat;" onclick="asignar_categoria('SUPERIOR')">
+
+								<input type="button" name="" class="boton_circulo" style="background-image: url(/img/INFERIOR.png);" onclick="asignar_categoria('INFRERIOR')">
+
+								<input type="button" name="" class="boton_circulo" style="background-image: url(/img/ZAPATO.png); " onclick="asignar_categoria('ZAPATO')">
+
+								<input type="button" name="" class="boton_circulo" style="background-image: url(/img/ACCESORIO.png); " onclick="asignar_categoria('ACCESORIO	')">-->
+
+						</div>
+
+						
+					</div>
+
+					<div class="tab">Seleccione un tipo de Prenda:
+							
+						 <select id="prendasSelect"  name="tipoPrenda" required>
+						  		<option selected disabled value="">Seleccionar </option>
+						  		{{#each	tipos_de_prendas}}
+						  		<p>{{this.nombrePrenda}}</p>
+						  		<option value="{{this.id}}">{{this.nombrePrenda}} - {{this.categoria}}</option>
+						  		{{/each}}
+						  		<option value="Algodon">Chomba</option>
+
+						  </select>
+
+					</div>
+
+					<div class="tab" style="">Información de Prenda:
+
+						<div style="display: flex; flex-direction: row;">
+							<br>
+							<br>
+
+							
+								<div>
+									<label >Color Primario </label>
+									<br>
+									<input class="seleccion_color" value="none" 	 type="color" name="color_primeario" required>
+								</div>
+
+								<div style="margin-left: 20px;">
+									<label >Color Secundario</label>
+									<br>
+									<input class="seleccion_color" type="color" name="color_primeario">
+								</div>
+
+							
+						</div>
+
+						<br>
+						<br>
+
+					  <label style="float:left;">Tipo de tela</label>		
+					  <select   name="tela" required>
+					  		<option selected disabled value="">Seleccionar</option>
+					  		{{#each telas}}
+					  		<option value="{{this.id}}">{{this.nombre}}</option>
+					  		{{/each}}
+
+					  </select>
+
+					  <br>
+					  <br>
+
+					  <label style="float:left;">Tipo de Material</label>		
+					  <select  name="material" required>
+					  		<option selected disabled value="" >Seleccionar</option>
+					  		{{#each materiales}}
+					  		<option value="{{this.id}}">{{this.nombre}}</option>
+					  		{{/each}}
+
+					  </select>
+
+					</div>
+
+
+
+					<div class="tab">Cargue una imagen:
+					  <p><input type="file" name="imagen" accept="image/*" value="none"></p>
+					</div>
+
+					<div style="overflow:auto;">
+					  <div style="float:right;">
+					    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previo</button>
+					    <button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
+					  </div>
+					</div>
+
+					<!-- Circles which indicates the steps of the form: -->
+					<div style="text-align:center;margin-top:40px;">
+					  <span class="step"></span>
+					  <span class="step"></span>
+					  <span class="step"></span>
+					  <span class="step"></span>
+					</div>
+
+			</form>
+
+			
+		</div>
+
+
+
+		<div class="rectangulo_abajo">
+			
+		</div>
+
+	<script type="text/javascript" src="/js/ingreso_prenda_quemepongo.js"></script>
+
+		<script type="text/javascript">
+
+		$(function(){
+		    //function to show city
+		    var showEstilo = function(selectedPrenda){
+		     $('#prendasSelect option').hide();
+		        $('#prendasSelect').find('option').filter(function(){
+		            var guardarropas = $(this).text();
+		            return guardarropas.indexOf(selectedEstilo)!=-1;
+		        }).show();
+		        //set default value
+		        var defaultCity = $('#prendasSelect option:visible:first').text();
+		        $('#prendasSelect').val(defaultCity);
+		    };
+
+		    //set default state
+		    var estilo = $('#estiloSelect').val();
+		    showEstilo(estilo);
+
+		    //on change event call showCity function 
+		    $('#estiloSelect').change(function(){
+		       showEstilo($(this).val());
+		    });
+		});
+
+	</script>
+
+	</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		 <link rel="stylesheet"    href="/css/login_quemepongo.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+   		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>LOGIN</title>
+	</head>
+	<body >
+
+		<div class="circle">
+
+			<img src="img/logoQueMePongo3.png" class="imagen_circulo">
+
+		</div>
+
+		<div class="rectangulo_contenedor">
+
+			<div class="cuadrado_login">
+
+				<form action="/login" method="post" id="form_login">
+					<p class="iniciar_sesion_texto">Iniciar Sesión</p>
+
+                    {{#if authenticationFailed}}
+                        <p class="texto_error">Usuario o contraseña incorrectos, vuelva a intentarlo.</p>
+                    {{/if}}
+
+					<p class="login_input_correo">Ingrese su Usuario</p>
+					<input id="input_id" type="text" name="usuario" class="input_email">
+
+					<p class="login_input_correo">Ingrese su Contraseña</p>
+					<input id="input_id" type="password" name="contrasenia" class="input_email">
+
+					<br>
+					<br>
+
+					<input type="submit" name="Boton_ingresar" value="Ingresar" class="boton_ingresar">
+
+				</form>
+
+				<div style="margin-top: 10%">
+					
+					<a href="/registrarUsuario">Registrarse</a>
+				</div>
+			
+			</div>
+
+		</div>	
+				
+		<div class="rectangulo_abajo">	
+			
+		</div>
+		
+
+	</body>
+</html>

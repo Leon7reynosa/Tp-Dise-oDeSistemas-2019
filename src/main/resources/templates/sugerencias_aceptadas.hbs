@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/css/sugerencias_aceptadas.css">
+    <script src="https://kit.fontawesome.com/45c2e77de6.js"></script>
+    <title>Pantalla de listado de prendas de un guardarropa</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta charset="utf-8">
+
+    <script src="/js/eliminar_prenda.js"></script>
+    <link rel="stylesheet" href="/css/modal_eliminar_prenda.css">
+    <script src="https://kit.fontawesome.com/27517fada0.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
+
+
+
+
+</head>
+<body>
+
+
+
+    <header>
+        <div class="menu_bar">
+            <a href="#" class="bt-menu" ><i class="fas fa-bars" id="barritas" ></i></a>
+
+        </div>
+
+        <nav>
+            <ul>
+                <form action="/logout" method="post">
+                    <li><a href="/"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="/guardarropas"><i class="fas fa-list"></i> Guardarropas</a></li>
+                    <li><a href="/calendario"><i class="far fa-calendar-alt"></i> Eventos</a></li>
+                    <li><a href="/seleccionGuardarropasSuge"><i class="fas fa-user-tie"></i> Sugerencia</a></li>
+                    <li><a href="/seleccionGuardarropas"><i class="fas fa-tshirt"></i> Ingresar Prenda</a></li>
+
+                    <li><a href="#"><button type="submit" class="boton_cerrar_sesion"><i class="fas fa-key"></i> Cerrar Sesion</button></a></li>
+                </form>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <div class="contenedor_general">
+
+        <div class="circle"><img src="/img/logoQueMePongo3.png" class="imagen_circulo"></div>
+
+        <p class="texto_prendas"><b>Sugerencias Aceptadas</b></p>
+
+        {{#if sugerenciaPrincipal}}
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
+
+          <div class="carousel-inner">
+
+            <div class="carousel-item active" >
+            
+               <div class="contenedor_sugerencia" style="text-align: center; display: flex; justify-content: center;">
+                    
+
+                    <div class="contenedor_imagen" id="div_active_superior"  data-toggle="tooltip" data-placement="top" title="{{sugerenciaPrincipal.prendaActiveSuperior.tipo.nombrePrenda}}" style="background-color: {{sugerenciaPrincipal.colorActiveSuperior}}">
+                          <img class="d-block w-100" src="{{sugerenciaPrincipal.prendaActiveSuperior.tipo.imagen}}" alt="First slide">
+                      
+                    </div>
+
+                   <div class="contenedor_imagen_inferior" data-toggle="tooltip" data-placement="top" title="{{sugerenciaPrincipal.prendaActiveInferior.tipo.nombrePrenda}}" style="background-color: {{sugerenciaPrincipal.colorActiveInferior}}" >
+                        <img src="{{sugerenciaPrincipal.prendaActiveInferior.tipo.imagen}}" class="imagensita">
+                      
+                    </div>
+                   
+                    <div class="contenedor_imagen_zapas" data-toggle="tooltip" data-placement="top" title="{{sugerenciaPrincipal.calzado.tipo.nombrePrenda}}"  style="background-color: {{sugerenciaPrincipal.colorCalzado}}">
+                
+                            <img src="{{sugerenciaPrincipal.calzado.tipo.imagen}}" class="imagensita">
+                          
+                    </div>
+                    <br>
+                    <h5> {{#if sugerenciaPrincipal.eventoSugerencia}} {{descripcionEvento}} {{else}} No tiene evento {{/if}}</h5>
+                    <p>{{#if sugerenciaPrincipal.frecuencia.fechaDelEvento}} {{descripcionEvento}} {{/if}}</p>
+                    {{#if sugerenciaPrincipal.calificacion }}
+                      <p>YA CALIFICADA!</p>
+                    {{else}}
+                    <button class="boton_calificar" data-toggle="modal" data-target="#exampleModalScrollable{{sugerenciaPrincipal.id}}">Calificar</button>
+                    {{/if}}
+            </div>
+            </div>
+
+
+  
+
+            {{#each sugerenciasAceptadas}}
+            <div class="carousel-item" >
+            
+               <div class="contenedor_sugerencia" style="text-align: center; display: flex; justify-content: center;">
+                    
+
+                    <div class="contenedor_imagen" id="div_active_superior"  data-toggle="tooltip" data-placement="top" title="{{this.prendaActiveSuperior.tipo.nombrePrenda}}" style="background-color: {{this.colorActiveSuperior}}">
+                          <img class="d-block w-100" src="{{this.prendaActiveSuperior.tipo.imagen}}" alt="First slide">
+                    
+                    </div>
+
+                   <div class="contenedor_imagen_inferior" data-toggle="tooltip" data-placement="top" title="{{this.prendaActiveInferior.tipo.nombrePrenda}}" style="background-color: {{colorActiveInferior}}" >
+        
+                        <img src="{{this.prendaActiveInferior.tipo.imagen}}" class="imagensita">
+            
+                      
+                    </div>
+                   
+                    <div class="contenedor_imagen_zapas" data-toggle="tooltip" data-placement="top" title="{{this.calzado.tipo.nombrePrenda}}"  style="background-color: {{this.colorCalzado}}">
+                      
+                            <img src="{{this.calzado.tipo.imagen}}" class="imagensita">
+                      
+                          
+                    </div>
+                    <br>
+                    <h5> {{#if this.eventoSugerencia}} {{descripcionEvento}} {{else}} No tiene evento {{/if}}</h5>
+                    <p>{{#if this.frecuencia.fechaDelEvento}} {{descripcionEvento}} {{/if}}</p>
+                    {{#if this.calificacion }}
+                      <p>YA CALIFICADA!</p>
+                    {{else}}
+                       <button class="boton_calificar" data-toggle="modal" data-target="#exampleModalScrollable{{this.id}}">Calificar</button>
+                    {{/if}}
+            </div>
+            </div>
+
+
+
+
+            {{/each}}
+
+
+
+          
+
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+
+        </div>
+
+
+    </div>
+    {{else}}
+    <h4>No hay sugerencias Aceptadas.</h4>
+    {{/if}}
+
+    {{#if sugerenciaPrincipal}}
+
+
+                             <div class="modal fade" id="exampleModalScrollable{{sugerenciaPrincipal.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-scrollable" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalScrollableTitle">Calificar</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <form style=" align-items: center;" action="/calificarSugerencia/{{sugerenciaPrincipal.id}}" method="post">
+                              <div class="modal-body">
+                                
+                                 <div class="contenedor_estrellas" style="align-items: center; border-radius: 10px; background-color:rgba(74,162,189, 0.4);">
+
+                                      <label style="font-size: 14pt;">Calificacion de Sugerencia:</label>
+
+                                      
+                                        <p class="clasificacion">
+                                          <input id="radio1{{sugerenciaPrincipal.id}}" type="radio" name="estrellas{{sugerenciaPrincipal.id}}" value="5"><!--
+                                          --><label for="radio1{{sugerenciaPrincipal.id}}">★</label><!--
+                                          --><input id="radio2{{sugerenciaPrincipal.id}}" type="radio" name="estrellas{{sugerenciaPrincipal.id}}" value="4"><!--
+                                          --><label for="radio2{{sugerenciaPrincipal.id}}">★</label><!--
+                                          --><input id="radio3{{sugerenciaPrincipal.id}}" type="radio" name="estrellas{{sugerenciaPrincipal.id}}" value="3"><!--
+                                          --><label for="radio3{{sugerenciaPrincipal.id}}">★</label><!--
+                                          --><input id="radio4{{sugerenciaPrincipal.id}}" type="radio" name="estrellas{{sugerenciaPrincipal.id}}" value="2"><!--
+                                          --><label for="radio4{{sugerenciaPrincipal.id}}">★</label><!--
+                                          --><input id="radio5{{sugerenciaPrincipal.id}}" type="radio" name="estrellas{{sugerenciaPrincipal.id}}" value="1"><!--
+                                          --><label for="radio5{{sugerenciaPrincipal.id}}">★</label>
+                                        </p>
+                                      
+                                      
+                                    </div>
+
+
+                                  </div>
+                                  <hr>
+                                  <div class="modal-footer">
+                                    <input type="submit" class="btn btn-primary" name="Aceptar" placeholder="Aceptar">
+                                  </div>
+                                  </form>
+
+                              </div>
+                     
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                          {{#each sugerenciasAceptadas}}
+
+                     <div class="modal fade" id="exampleModalScrollable{{this.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-scrollable" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalScrollableTitle">Calificar</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <form style=" align-items: center;" action="/calificarSugerencia/{{this.id}}" method="post">
+                              <div class="modal-body">
+                                
+                                 <div class="contenedor_estrellas" style="align-items: center; border-radius: 10px; background-color:rgba(74,162,189, 0.4);">
+
+                                      <label style="font-size: 14pt;">Calificacion de Sugerencia:</label>
+
+                                      
+                                        <p class="clasificacion">
+                                          <input id="radio1{{this.id}}" type="radio" name="estrellas{{this.id}}" value="5"><!--
+                                          --><label for="radio1{{this.id}}">★</label><!--
+                                          --><input id="radio2{{this.id}}" type="radio" name="estrellas{{this.id}}" value="4"><!--
+                                          --><label for="radio2{{this.id}}">★</label><!--
+                                          --><input id="radio3{{this.id}}" type="radio" name="estrellas{{this.id}}" value="3"><!--
+                                          --><label for="radio3{{this.id}}">★</label><!--
+                                          --><input id="radio4{{this.id}}" type="radio" name="estrellas{{this.id}}" value="2"><!--
+                                          --><label for="radio4{{this.id}}">★</label><!--
+                                          --><input id="radio5{{this.id}}" type="radio" name="estrellas{{this.id}}" value="1"><!--
+                                          --><label for="radio5{{this.id}}">★</label>
+                                        </p>
+                                      
+                                      
+                                    </div>
+
+
+                                  </div>
+                                  <hr>
+                                  <div class="modal-footer">
+                                    <input type="submit" class="btn btn-primary" name="Aceptar" placeholder="Aceptar">
+                                  </div>
+                                  </form>
+
+                              </div>
+                     
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+    {{/each}}    
+
+
+    {{/if}}
+
+
+
+                 
+
+    <!-- MODAL VER ATUENDO Y SCRIPT AJAX PARA PEDIRLO -->
+
+    <script>
+
+
+        function pedirAtuendo(id){
+
+            $.ajax({
+                type: "GET",
+                url: "/",
+                success: function(result){
+
+                }
+            });
+
+        }
+
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+
+          Handlebars.registerHelper('splitQuote', function(string) {
+                string = Handlebars.Utils.escapeExpression(string);
+                if (string.indexOf('|') !== -1) {
+                    string = string.replace('|', '<span>') + '</span>';
+                }
+                return new Handlebars.SafeString(string); // mark as already escaped
+            });
+
+        });
+    </script>
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/js/menu_desplegable_quemepongo.js"></script>
+    <script src="/js/probando_handlebars.js"></script>
+    <script src="/js/handlebars-v4.5.3.js"></script>
+    <script type="text/javascript"></script>
+
+</body>
+</html>

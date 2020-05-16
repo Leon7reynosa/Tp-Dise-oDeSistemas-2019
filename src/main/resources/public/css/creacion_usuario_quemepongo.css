@@ -1,0 +1,179 @@
+body{
+
+	font-family: 'Lato', sans-serif;
+	background-color:#EDEDED;
+	text-align: center;
+  z-index: -2;
+}
+
+label{
+
+	font: bold 150% sans-serif; 
+	float: left;
+}
+
+input{
+
+
+
+}
+
+
+.circle {	
+  background-color: #3A9EB7;
+  margin: 1% ;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  align-items: center;
+}
+
+.circulo_usuario{
+  border-radius: 50%;
+  background-color: white ;
+  height: 110px;
+  width: 110px;
+  margin-top: -30px;
+  align-items: center;
+
+}
+
+.imagen_circulo{
+
+	position: relative;
+	width: 90%;
+	height: auto;
+
+}
+
+.rectangulo_abajo{
+
+  background-color: #024959;
+  position: fixed;
+   height: 35%;
+   width: 100%;
+   bottom: 0px;
+   right: : 0px;
+   left: 0px;
+   z-index: -1;
+}
+
+.contenedor_info_usuario{
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width:100%;
+  height: 90%;
+  margin: 0px;
+  left: 0px;
+  /*background-color: rgb(245, 245, 245);*/
+  background: rgba(200,200,200,0.0);
+}
+
+.carta_usuario{
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  background-color: white;
+  border-bottom:4px solid #57CAC3;
+  border-top: 4px solid rgb(72, 73, 74);
+  padding: 10px;
+}
+
+
+.input_datos{
+
+  font-size:20px;
+  height: 25px;
+  border:0px;
+  width:100%;
+  padding: 5px;
+  background-color: #F4F4F4;
+  border-bottom:3px solid rgb(72, 73, 74);
+}
+
+.alineacion_paralela{
+
+  display: flex;
+  flex-direction: row;
+
+}
+
+.btn-border-blue{
+  padding: 7px;
+  margin: 10px;
+  width: 42px;
+  height: 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  color:rgb(10, 123, 199);
+  border: 1px solid rgb(10, 123, 199);
+  text-decoration: none;
+  float: left;
+}
+
+.btn_crear_usuario{
+  border:0px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #32A39C;
+  border-radius: 5px;
+  margin:5px;
+  cursor:pointer;
+  color:white;
+}
+
+.btn_crear_usuario:hover{
+  background-color: #57CAC3
+}
+
+@media screen and (max-width:800px){
+
+  .carta_usuario{
+    flex-direction: column;
+  }
+
+  #centrador{
+    display: flex;
+    justify-content: center;
+  }
+
+  .circle{
+    height: 70px;
+    width: 70px;
+  }
+  
+  .alineacion_paralela{
+    flex-direction: column;
+  }
+
+  label{
+
+  font: bold 90% sans-serif; 
+  margin-bottom: -5px;
+  }
+
+  .input_datos{
+    width: 85%;
+    float: left;
+    height: 20px;
+    font-size: 15px;
+    padding: 0px;
+    margin-top: -5%;
+  }
+
+  .btn-border-blue{
+    margin: 5px;
+  }
+
+  .contenedor_info_usuario{
+    width: 100;
+    margin-top:8%;
+  }
+  .rectangulo_abajo{}
+
+
+
+}
